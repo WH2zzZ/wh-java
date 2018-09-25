@@ -1,5 +1,6 @@
 package com.wanghan.functional_interface;
 
+
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ import java.util.function.Supplier;
  *
  * Predicate<T> : 断言型接口 boolean test(T t);
  */
-public class StudyDemo01 {
+public class FunctionInterface {
 
 
     //消费型接口

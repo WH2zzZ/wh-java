@@ -1,6 +1,7 @@
 package com.wanghan.lambda;
 
-import org.junit.jupiter.api.Test;
+
+import org.junit.Test;
 
 import java.util.Comparator;
 import java.util.TreeSet;
@@ -8,7 +9,7 @@ import java.util.TreeSet;
 /**
  * 初试Lambda表达式
  */
-public class Demo {
+public class SimpleLambda {
 
     @Test
     public void test01(){

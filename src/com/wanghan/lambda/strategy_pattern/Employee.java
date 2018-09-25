@@ -1,5 +1,7 @@
 package com.wanghan.lambda.strategy_pattern;
 
+import java.util.Objects;
+
 /**
  * 员工类
  */
@@ -10,12 +12,34 @@ public class Employee {
     private Integer salary;
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return Objects.equals(name, employee.name) &&
+                Objects.equals(age, employee.age) &&
+                Objects.equals(salary, employee.salary);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, age, salary);
+    }
+
+    @Override
     public String toString() {
         return "Employee{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
                 ", salary=" + salary +
                 '}';
+    }
+
+    public Employee() {
+    }
+
+    public Employee(String name) {
+        this.name = name;
     }
 
     public Employee(String name, Integer age, Integer salary) {

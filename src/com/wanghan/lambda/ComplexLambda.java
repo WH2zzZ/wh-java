@@ -29,7 +29,7 @@ import java.util.function.Consumer;
  * Lambda需要"函数式接口的支持",即:接口只有一个抽象方法的的接口,称为函数式接口.可以使用注解: @FunctionalInterface修饰
  *                               可以检查是否是函数式接口
  */
-public class StudyDemo {
+public class ComplexLambda {
 
     /**
      * 语法格式一
