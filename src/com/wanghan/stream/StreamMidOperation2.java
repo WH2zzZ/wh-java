@@ -3,8 +3,10 @@ package com.wanghan.stream;
 import com.wanghan.lambda.strategy_pattern.Employee;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 /**
  * 映射
@@ -46,5 +48,25 @@ public class StreamMidOperation2 {
     /**
      * flatmap -- 接受一个函数作为参数,将流中的每个值都换成另一个流,然后把所有流连接成一个流
      */
+    public static Stream<Character> filterString(String str){
+        List<Character> list = new ArrayList<>();
+        for (char c : str.toCharArray()) {
+            list.add(c);
+        }
+
+        return list.stream();
+    }
+
+    @Test
+    public void test3(){
+        List<String> list = Arrays.asList("aaa","bbb","ccc","ddd","eee");
+
+        //使用map就是只能Stream中镶嵌String
+        Stream<Stream<Character>> stream = list.stream()
+                .map(StreamMidOperation2::filterString);
+
+        //使用flatmap,就自动将两个Stream整合在一起
+        Stream<Character> stream1 = list.stream().flatMap(StreamMidOperation2::filterString);
+    }
     
 }

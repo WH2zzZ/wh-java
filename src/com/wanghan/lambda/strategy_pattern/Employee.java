@@ -10,6 +10,28 @@ public class Employee {
     private String name;
     private Integer age;
     private Integer salary;
+    private Status status;
+
+    public enum Status{
+        FREE,
+        BUSY,
+        VOCATION
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    public Employee(String name, Integer age, Integer salary, Status status) {
+        this.name = name;
+        this.age = age;
+        this.salary = salary;
+        this.status = status;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -32,6 +54,7 @@ public class Employee {
                 "name='" + name + '\'' +
                 ", age=" + age +
                 ", salary=" + salary +
+                ", status=" + status +
                 '}';
     }
 
