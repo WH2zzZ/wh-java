@@ -48,6 +48,8 @@ public class OptionalDemo {
         Optional<Employee> o1 = Optional.ofNullable(null);
         Employee employee = o1.orElseGet(() -> new Employee());
         System.out.println(employee);
+
+
     }
 
     /**
@@ -56,10 +58,12 @@ public class OptionalDemo {
      */
     @Test
     public void test4(){
+        Employee employee = new Employee("zhansan", null, 10000, Employee.Status.FREE);
         Optional<Employee> op = Optional.ofNullable(new Employee("zhansan", 22, 10000, Employee.Status.FREE));
 
         Optional<String> name = op.map(Employee::getName);
         System.out.println(name);
 
+        System.out.println(Optional.ofNullable(employee.getAge()).orElse(1));
     }
 }

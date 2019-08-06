@@ -6,6 +6,7 @@ import org.junit.Test;
 import java.security.PublicKey;
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * 终止操作
@@ -118,6 +119,19 @@ public class StreamFinalOperation2 {
     public void test8(){
         Map<Boolean, List<Employee>> collect = employees.stream().collect(Collectors.partitioningBy(employee -> employee.getAge() > 23));
         collect.forEach((aBoolean, employeeList) -> System.out.println(aBoolean + " : " + employeeList));
+    }
+
+
+    @Test
+    public void test9(){
+        String a = "/5fe52e9e1470478559d3280598a1ffa4.PROJECT/6000000704562544.COMPANY/6000001481976524.DEPT";
+        String[] split = a.split("/");
+        for (String s : split) {
+            if (s.contains("COMPANY")){
+                String substring = s.substring(0, s.indexOf("."));
+                System.out.     println(substring);
+            }
+        }
     }
 
 }

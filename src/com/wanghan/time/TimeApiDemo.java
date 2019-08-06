@@ -2,11 +2,12 @@ package com.wanghan.time;
 
 import org.junit.Test;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
-import java.time.temporal.TemporalAccessor;
-import java.time.temporal.TemporalAdjuster;
 import java.time.temporal.TemporalAdjusters;
+import java.util.Date;
 import java.util.Set;
 
 /**
@@ -30,6 +31,26 @@ public class TimeApiDemo {
         System.out.println(dateTime3);
         //................
 
+        //获取当月时间
+        LocalDateTime monthDateStartTime = LocalDateTime.of(LocalDate.now().with(TemporalAdjusters.firstDayOfMonth()), LocalTime.MIN);
+        LocalDateTime monthDateEndTime = LocalDateTime.of(LocalDate.now().with(TemporalAdjusters.lastDayOfMonth()), LocalTime.MAX);
+        System.out.println(monthDateStartTime);
+        System.out.println(monthDateEndTime);
+
+        //获取当天的开始时间和结束时间
+        LocalDateTime todayStartTime = LocalDateTime.of(LocalDate.now(), LocalTime.MIN);
+        LocalDateTime todayEndTime = LocalDateTime.of(LocalDate.now(), LocalTime.MAX);
+
+        //获取当前小时的起始时间
+        LocalDate now = LocalDate.now();
+        LocalDateTime hoursStartTime = LocalDateTime.of(now.getYear(), now.getMonth(), now.getDayOfMonth(), LocalTime.now().getHour(), 0, 0);
+        LocalDateTime hoursEndTime = LocalDateTime.of(now.getYear(), now.getMonth(), now.getDayOfMonth(), LocalTime.now().getHour(), 59, 59);
+        Date hourStartTime = getHourStartTime(0);
+        Date hourEndTime = getHourEndTime(0);
+        System.out.println("获取当前小时的起始时间" + hoursStartTime);
+        System.out.println(hoursEndTime);
+        System.out.println(hourStartTime);
+        System.out.println(hourEndTime);
         //获取月/日
         System.out.println(dateTime.getYear());
         System.out.println(dateTime.getMonth());
@@ -137,11 +158,32 @@ public class TimeApiDemo {
         System.out.println(parse);
     }
 
+
+    //获取指定小时的启示和结束时间
+    public Date getHourStartTime(int hour){
+        LocalDate now = LocalDate.now();
+        LocalDateTime hourStartTime = LocalDateTime.of(now.getYear(), now.getMonth(), now.getDayOfMonth(), hour, 0, 0);
+        return covertLocalDateTime(hourStartTime);
+    }
+
+    public Date getHourEndTime(int hour){
+        LocalDate now = LocalDate.now();
+        LocalDateTime hourEndTime = LocalDateTime.of(now.getYear(), now.getMonth(), now.getDayOfMonth(), hour, 59, 59);
+        return covertLocalDateTime(hourEndTime);
+    }
+
+    public Date covertLocalDateTime(LocalDateTime localDateTime){
+        ZoneId zoneId = ZoneId.systemDefault();
+        ZonedDateTime zdt = localDateTime.atZone(zoneId);
+
+        return Date.from(zdt.toInstant());
+    }
+
     /**
      * 时区操作
      */
     @Test
-    public void test7(){
+    public void test7() throws ParseException {
         //查看支持的时区
         Set<String> zoneIds = ZoneId.getAvailableZoneIds();
         zoneIds.forEach(System.out::println);
@@ -154,5 +196,50 @@ public class TimeApiDemo {
         LocalDateTime now1 = LocalDateTime.now();
         ZonedDateTime zonedDateTime = now1.atZone(ZoneId.of("Asia/Shanghai"));
         System.out.println(zonedDateTime);
+        Date date = Date.from(zonedDateTime.toInstant()); //ZoneDateTime 转换成Date
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String s = simpleDateFormat.format(date);
+        Date date1 = simpleDateFormat.parse(s);
+        System.out.println(s);
+    }
+
+    @Test
+    public void test8() throws ParseException {
+        LocalDateTime startTime = LocalDateTime.of(LocalDate.now().with(TemporalAdjusters.firstDayOfMonth()), LocalTime.MIN);
+        LocalDateTime endTime = LocalDateTime.of(LocalDate.now().with(TemporalAdjusters.lastDayOfMonth()), LocalTime.MAX);
+        System.out.println(startTime);
+        System.out.println(endTime);
+
+        long epochSecond = startTime.toEpochSecond(ZoneOffset.of("+8"));
+        long now = LocalDateTime.now().toEpochSecond(ZoneOffset.of("+8"));
+        System.out.println(now);
+        System.out.println(epochSecond);
+    }
+
+    @Test
+    public void makeTime() {
+        long startTime = LocalDateTime.of(LocalDate.now().with(TemporalAdjusters.firstDayOfMonth()), LocalTime.MIN)
+                .toEpochSecond(ZoneOffset.of("+8"));
+        long nowTime = LocalDateTime.now().toEpochSecond(ZoneOffset.of("+8"));
+        String result = String.valueOf(Long.toHexString(nowTime - startTime));
+        for (int i = 0; i < (6 - result.length()); i++) {
+            result = "0" + result;
+        }
+
+        System.out.println(result.toUpperCase());
+    }
+
+    @Test
+    public void test09(){
+        LocalDate now = LocalDate.now();
+        LocalDateTime endTime = LocalDateTime.of(now.getYear(), now.getMonth(), now.getDayOfMonth(), LocalTime.now().getHour(), LocalTime.now().getMinute() - 5, LocalTime.now().getSecond());
+        ZoneId zoneId = ZoneId.systemDefault();
+        ZonedDateTime zdt = endTime.atZone(zoneId);
+        Date endDate = Date.from(zdt.toInstant());
+        System.out.println(endDate);
+
+        Date date = new Date();
+        System.out.println(date);
+        System.out.println(date.compareTo(endDate));
     }
 }

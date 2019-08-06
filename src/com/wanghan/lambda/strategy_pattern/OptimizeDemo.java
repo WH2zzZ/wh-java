@@ -61,7 +61,7 @@ public class OptimizeDemo {
     }
 
     //对相同代码进行抽取
-    public List<Employee> filterEmployee(List<Employee> employeeList, MyFilter<Employee> filter){
+    private List<Employee> filterEmployee(List<Employee> employeeList, MyFilter<Employee> filter){
         List<Employee> result = new ArrayList<>();
         for (Employee employee : employeeList) {
             //对相同的代码中同一位置可能会出现的不同代码进行策略抽取

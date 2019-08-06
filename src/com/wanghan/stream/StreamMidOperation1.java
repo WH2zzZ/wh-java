@@ -1,11 +1,23 @@
 package com.wanghan.stream;
 
 import com.wanghan.lambda.strategy_pattern.Employee;
+import com.wanghan.time.HexTest;
 import org.junit.Test;
 
+import javax.crypto.*;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.time.*;
+import java.time.temporal.TemporalAdjusters;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
@@ -37,11 +49,18 @@ public class StreamMidOperation1 {
     public void test1(){
         Stream<Employee> employeeStream = employees.stream().filter(e -> {
             System.out.println("Stream API的中间操作执行了");
-            return e.getAge() > 22;
+            return e.getAge() <= 23;
         });
 
         //终止操作(打上注释可以查看中间操作在终止操作之前是不会执行的)
         employeeStream.forEach(System.out::println);
+
+        List<Employee> collect = employees.stream().filter(e -> {
+            System.out.println("Stream API的中间操作执行了");
+            return e.getAge() <= 23;
+        }).collect(Collectors.toList());
+
+        collect.forEach(System.out::println);
     }
 
     /**
@@ -83,6 +102,72 @@ public class StreamMidOperation1 {
         employees.stream()
                  .distinct()
                  .forEach(System.out::println);
+
     }
 
+    @Test
+    public void test6(){
+        String first = "AA";
+
+        String time = makeTime();
+
+        String mobileNum = Long.toHexString(Long.parseLong("13013041809"));
+        for (int i = 0; i < (10 - mobileNum.length()); i++) {
+            mobileNum = "0" + mobileNum;
+        }
+
+        String result = first + time + mobileNum + "00000000000000";
+        System.out.println(time + mobileNum);
+        System.out.println((time + mobileNum).getBytes().length);
+        System.out.println(result);
+        System.out.println(result.getBytes().length);
+    }
+
+    @Test
+    public void test7() throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException {
+        byte[] password = HexTest.hexToByteArr("AA2101a80307a3429100000000000000");
+
+        KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
+        keyGenerator.init(128, new SecureRandom(password));
+        SecretKey secretKey = keyGenerator.generateKey();
+
+        byte[] secretKeyEncoded = HexTest.hexToByteArr("76ea59b72d425c61f2b2684278924046");
+        SecretKeySpec aes = new SecretKeySpec(secretKeyEncoded, "AES");
+
+        Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
+        cipher.init(Cipher.ENCRYPT_MODE, aes);
+        byte[] result = cipher.doFinal(password);
+        System.out.println(Arrays.toString(result));
+        System.out.println(HexTest.byteArrToHex(result));
+        System.out.println(Arrays.toString(HexTest.hexToByteArr("2f62fa821c87e8e32d3e64a90d4df24b")));
+    }
+
+    @Test
+    public void test8() throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException {
+        byte[] secretKeyEncoded = HexTest.hexToByteArr("7db238a923as393z");
+        SecretKeySpec aes = new SecretKeySpec(secretKeyEncoded, "AES");
+
+        Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
+        cipher.init(Cipher.DECRYPT_MODE, aes);
+        byte[] result = cipher.doFinal(password);
+        System.out.println(Arrays.toString(result));
+        System.out.println(HexTest.byteArrToHex(result));
+        System.out.println(Arrays.toString(HexTest.hexToByteArr("2f62fa821c87e8e32d3e64a90d4df24b")));
+    }
+
+    private String makeTime() {
+        long startTime = LocalDateTime.of(LocalDate.now().with(TemporalAdjusters.firstDayOfMonth()), LocalTime.MIN)
+                .toEpochSecond(ZoneOffset.of("+8"));
+        long nowTime = LocalDateTime.now().toEpochSecond(ZoneOffset.of("+8"));
+        String result = String.valueOf(Long.toHexString(nowTime - startTime));
+        for (int i = 0; i < (6 - result.length()); i++) {
+            result = "0" + result;
+        }
+        return result;
+    }
+
+    @Test
+    public void test8(){
+        System.out.println(Instant.now().getEpochSecond());
+    }
 }

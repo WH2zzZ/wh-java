@@ -20,8 +20,7 @@ public class StreamFinalOperation1 {
             new Employee("zhangsan", 23, 5000, Employee.Status.FREE),
             new Employee("zhangsan", 24, 6000, Employee.Status.VOCATION),
             new Employee("zhangsan", 24, 6000, Employee.Status.BUSY),
-            new Employee("zhangsan", 24, 6000, Employee.Status.FREE)
-    );
+            new Employee("zhangsan", 24, 6000, Employee.Status.FREE));
 
     /**
      * 查找与匹配

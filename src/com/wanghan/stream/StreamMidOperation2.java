@@ -6,6 +6,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
@@ -67,6 +68,12 @@ public class StreamMidOperation2 {
 
         //使用flatmap,就自动将两个Stream整合在一起
         Stream<Character> stream1 = list.stream().flatMap(StreamMidOperation2::filterString);
+
+        List<Stream<Character>> collect = stream.collect(Collectors.toList());
+        System.out.println(collect);
+
+        List<Character> collect1 = stream1.collect(Collectors.toList());
+        System.out.println(collect1);
     }
     
 }
