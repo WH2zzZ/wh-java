@@ -23,6 +23,32 @@ class Solution {
     }
 
     /**
+     * 974. 和可被 K 整除的子数组
+     * 输入：A = [4,5,0,-2,-3,1], K = 5
+     * 输出：7
+     * 解释：
+     * 有 7 个子数组满足其元素之和可被 K = 5 整除：
+     * [4, 5, 0, -2, -3, 1], [5], [5, 0], [5, 0, -2, -3], [0], [0, -2, -3], [-2, -3]
+     *
+     */
+    public static int subarraysDivByK(int[] A, int K) {
+        int count = 0;
+        HashMap<Integer, Integer> map = new HashMap<>(64);
+        map.put(0, 1);
+        int preSum = 0;
+        int preSumModKey = 0;
+        for (int i = 0; i < A.length; i++) {
+            preSum += A[i];
+            //如果为负数需要转换成正数
+            preSumModKey = (preSum % K + K) % K;
+            int sum = map.getOrDefault(preSumModKey, 0);
+            count += sum;
+            map.put(preSumModKey, sum + 1);
+        }
+        return count;
+    }
+
+    /**
      * 560.和为K的子数组
      */
     public static int subarraySum(int[] nums, int k) {
