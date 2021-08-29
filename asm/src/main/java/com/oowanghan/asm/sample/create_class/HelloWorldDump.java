@@ -1,4 +1,4 @@
-package com.oowanghan.asm.demo1_create;
+package com.oowanghan.asm.sample.create_class;
 
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.MethodVisitor;
@@ -18,7 +18,7 @@ public class HelloWorldDump implements Opcodes {
                 // 是public级别
                 ACC_PUBLIC | ACC_SUPER,
                 // 类的全限定名
-                "com/oowanghan/asm/demo1_create/HelloWorld",
+                "com/oowanghan/asm/sample/create_class/HelloWorld",
                 null,
                 // 父类
                 "java/lang/Object",

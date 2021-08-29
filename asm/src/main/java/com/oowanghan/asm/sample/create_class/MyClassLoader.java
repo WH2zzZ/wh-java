@@ -1,9 +1,9 @@
-package com.oowanghan.asm.demo1_create;
+package com.oowanghan.asm.sample.create_class;
 
 public class MyClassLoader extends ClassLoader {
     @Override
     protected Class<?> findClass(String name) throws ClassNotFoundException {
-        if ("com.oowanghan.asm.demo1_create.HelloWorld".equals(name)) {
+        if ("sample.HelloWorld".equals(name)) {
             byte[] bytes = HelloWorldDump.dump();
             Class<?> clazz = defineClass(name, bytes, 0, bytes.length);
             return clazz;
