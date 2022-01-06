@@ -1,4 +1,4 @@
-package com.oowanghan.ractor.rxjava.myrxjava.event;
+package reactor.rxjava.myrxjava.event;
 
 /**
  * 事件发射器

@@ -1,10 +1,7 @@
-package com.oowanghan.thread.thread.status.wait;
+package com.oowanghan.thread.status.wait;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
-import sun.rmi.runtime.Log;
-import thread.status.model.ThreadOne;
-import thread.status.model.ThreadTwo;
 
 @Slf4j
 public class ThreadNotifyStatus {

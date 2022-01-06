@@ -1,4 +1,4 @@
-package com.oowanghan.ractor.rxjava.merge;
+package reactor.rxjava.merge;
 
 import io.reactivex.Observable;
 import io.reactivex.Observer;

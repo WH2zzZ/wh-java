@@ -1,4 +1,4 @@
-package com.oowanghan.thread.thread.problem.safe.lock;
+package com.oowanghan.thread.problem.safe.lock;
 
 import java.util.concurrent.locks.ReentrantLock;
 

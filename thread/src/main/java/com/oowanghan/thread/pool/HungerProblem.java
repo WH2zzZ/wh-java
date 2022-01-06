@@ -1,4 +1,4 @@
-package com.oowanghan.thread.thread.pool;
+package com.oowanghan.thread.pool;
 
 import lombok.extern.slf4j.Slf4j;
 

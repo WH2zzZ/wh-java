@@ -1,4 +1,4 @@
-package com.oowanghan.io.pack;
+package com.oowanghan.io.pack.solve.protocl;
 
 //协议包
 public class MessageProtocol {

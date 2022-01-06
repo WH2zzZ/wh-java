@@ -1,44 +1,36 @@
-package com.oowanghan.spring.factorybean;
+package com.oowanghan.spring.importBean;
 
-import com.oowanghan.spring.bean.ObjectInterface;
-import com.oowanghan.spring.bean.UserInterface;
-import org.springframework.beans.factory.support.AbstractBeanDefinition;
-import org.springframework.beans.factory.support.BeanDefinitionBuilder;
+import com.oowanghan.spring.scanner.MyScanner;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Import;
 
 /**
  * @Author WangHan
  * @Create 2021/12/14 1:55 上午
  */
-@ComponentScan({"com.oowanghan.spring.bean", "com.oowanghan.spring.factorybean"})
-public class FactoryBeanApplication {
+@ComponentScan({"com.oowanghan.spring.bean", "com.oowanghan.spring.importBean"})
+//@Import(MyImportBeanDefinitionRegister.class)
+@MyScanner("com.oowanghan.spring.bean")
+public class ImportBeanApplication {
 
+
+    /**
+     * 自己实现类似mybatis的mapper接口
+     * 1。 需要实现自己的类扫描器 -> MyClassPathScanner
+     * 2。 通过FactoryBean来实现接口对象的动态代理（需要代理出要执行的方法体） -> DefaultFactoryBean
+     * 3。 最后通过注册器
+     * 4。 Import导入自己实现的register，会自动实现里面的bean注册
+     * @param args
+     */
     public static void main(String[] args) {
-        // 方案1
-//        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(UserService.class);
-//        UserService userService = applicationContext.getBean("userService", UserService.class);
-//        userService.test();
 
-        // 方案2, 这种方案让factoryBean更动态
+        // 方案3
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
-        applicationContext.register(FactoryBeanApplication.class);
-
-        AbstractBeanDefinition beanDefinition = BeanDefinitionBuilder.genericBeanDefinition().getBeanDefinition();
-        beanDefinition.setBeanClass(DefaultFactoryBean.class);
-        beanDefinition.getConstructorArgumentValues().addGenericArgumentValue(UserInterface.class);
-        applicationContext.registerBeanDefinition("userInterface", beanDefinition);
-
-        AbstractBeanDefinition beanDefinition1 = BeanDefinitionBuilder.genericBeanDefinition().getBeanDefinition();
-        beanDefinition1.setBeanClass(DefaultFactoryBean.class);
-        beanDefinition1.getConstructorArgumentValues().addGenericArgumentValue(ObjectInterface.class);
-        applicationContext.registerBeanDefinition("xxx", beanDefinition1);
-
+        applicationContext.register(ImportBeanApplication.class);
         applicationContext.refresh();
 
-        DefaultService defaultService = applicationContext.getBean("defaultService", DefaultService.class);
-        defaultService.test();
-
-        // 方案3 见importBean
+        ImportService importService = applicationContext.getBean("importService", ImportService.class);
+        importService.test();
     }
 }

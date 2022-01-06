@@ -1,4 +1,4 @@
-package com.oowanghan.ractor;
+package reactor;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;

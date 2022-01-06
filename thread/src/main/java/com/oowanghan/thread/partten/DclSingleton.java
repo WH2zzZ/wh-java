@@ -1,4 +1,4 @@
-package com.oowanghan.thread.thread.partten;
+package com.oowanghan.thread.partten;
 
 import java.io.Serializable;
 

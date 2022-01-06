@@ -1,8 +1,8 @@
-package com.oowanghan.thread.thread.status.wait;
+package com.oowanghan.thread.status.wait;
 
+import com.oowanghan.thread.status.model.ThreadOne;
+import com.oowanghan.thread.status.model.ThreadTwo;
 import org.junit.jupiter.api.Test;
-import thread.status.model.ThreadOne;
-import thread.status.model.ThreadTwo;
 
 public class ThreadWaitStatus {
 

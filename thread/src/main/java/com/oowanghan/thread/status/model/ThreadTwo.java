@@ -1,4 +1,4 @@
-package com.oowanghan.thread.thread.status.model;
+package com.oowanghan.thread.status.model;
 
 public class ThreadTwo implements Runnable {
 

@@ -1,9 +1,8 @@
-package com.oowanghan.ractor.rxjava.myrxjava.test;
+package reactor.rxjava.myrxjava.test;
 
-import com.oowanghan.ractor.rxjava.myrxjava.event.Emitter;
-import com.oowanghan.ractor.rxjava.myrxjava.observable.Observable;
-import com.oowanghan.ractor.rxjava.myrxjava.observable.ObservableOnSubscribe;
-import com.oowanghan.ractor.rxjava.myrxjava.observer.Observer;
+import reactor.rxjava.myrxjava.observer.Observer;
+import reactor.rxjava.myrxjava.observable.Observable;
+import reactor.rxjava.myrxjava.observable.ObservableOnSubscribe;
 
 /**
  * @Author WangHan
@@ -12,16 +11,16 @@ import com.oowanghan.ractor.rxjava.myrxjava.observer.Observer;
 public class CreateTest {
 
     public static void main(String[] args) {
-        Observable.create(new ObservableOnSubscribe<String>() {
-            @Override
-            public void subscribe(Emitter<? super String> emitter) {
-                emitter.onNext("1");
-                emitter.onNext("2");
-                emitter.onNext("3");
-                emitter.onComplete();
-                emitter.onError(new NullPointerException());
-            }
-        }).subscribe(new Observer<String>() {
+        Observable.create((ObservableOnSubscribe<String>) emitter -> {
+            //api
+            String result = "1";
+            emitter.onNext(result);
+            emitter.onNext("2");
+            emitter.onNext("3");
+            emitter.onComplete();
+            emitter.onError(new NullPointerException());
+        }).map(s -> String.valueOf(Integer.parseInt(s) + 10))
+            .subscribe(new Observer<String>() {
             @Override
             public void onSubscribe() {
                 System.out.println("subscribe");

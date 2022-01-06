@@ -1,9 +1,6 @@
-package com.oowanghan.thread.thread.status.stop;
+package com.oowanghan.thread.status.stop;
 
-import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import sun.rmi.runtime.Log;
-import thread.create.Demo01;
 
 import java.util.Date;
 

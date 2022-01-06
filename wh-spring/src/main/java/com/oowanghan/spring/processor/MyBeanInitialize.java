@@ -1,5 +1,6 @@
-package com.oowanghan.spring.bean;
+package com.oowanghan.spring.processor;
 
+import com.oowanghan.spring.bean.UserInterface;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

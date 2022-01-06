@@ -1,4 +1,4 @@
-package com.oowanghan.thread.thread.status.wait;
+package com.oowanghan.thread.status.wait;
 
 import lombok.extern.slf4j.Slf4j;
 

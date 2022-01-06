@@ -1,12 +1,8 @@
-package com.oowanghan.thread.thread.problem.change_class;
+package com.oowanghan.thread.problem.change_class;
 
 import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.Test;
 
 import java.sql.*;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
 import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.Executor;

@@ -1,4 +1,4 @@
-package com.oowanghan.thread.thread.problem.safe.volatiles;
+package com.oowanghan.thread.problem.safe.volatiles;
 
 import lombok.extern.slf4j.Slf4j;
 

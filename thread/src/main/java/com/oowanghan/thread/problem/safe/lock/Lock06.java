@@ -1,8 +1,7 @@
-package com.oowanghan.thread.thread.problem.safe.lock;
+package com.oowanghan.thread.problem.safe.lock;
 
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 

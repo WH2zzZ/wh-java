@@ -1,4 +1,4 @@
-package com.oowanghan.thread.thread.util;
+package com.oowanghan.thread.util;
 
 import lombok.Data;
 

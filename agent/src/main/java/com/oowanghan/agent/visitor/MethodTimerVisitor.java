@@ -1,4 +1,4 @@
-package com.oowanghan.agent.operator;
+package com.oowanghan.agent.visitor;
 
 import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.FieldVisitor;
@@ -62,7 +62,6 @@ public class MethodTimerVisitor extends ClassVisitor {
 
         @Override
         public void visitCode() {
-            System.out.println("run " + methodName);
             super.visitFieldInsn(GETSTATIC, owner, getFieldName(methodName), "J"); // 注意，字段名字要对应
             super.visitMethodInsn(INVOKESTATIC, "java/lang/System", "currentTimeMillis", "()J", false);
             super.visitInsn(LSUB);

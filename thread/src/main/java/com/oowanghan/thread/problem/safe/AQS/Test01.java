@@ -1,4 +1,4 @@
-package com.oowanghan.thread.thread.problem.safe.AQS;
+package com.oowanghan.thread.problem.safe.AQS;
 
 import java.util.concurrent.locks.AbstractQueuedSynchronizer;
 import java.util.concurrent.locks.Condition;

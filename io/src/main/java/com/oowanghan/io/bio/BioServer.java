@@ -1,10 +1,11 @@
-package com.kingsalt.io.server;
+package com.oowanghan.io.bio;
 
 
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -32,11 +33,15 @@ public class BioServer {
          * read阻塞，等待数据，会影响第二个客户端的连接
          * 考虑使用多线程实现
          */
+        log.info("[wait connect] ip:{}, port:{}", serverSocket.getInetAddress(), serverSocket.getLocalPort());
+        // accept阻塞等待连接
+        Socket accept = serverSocket.accept();
         while (true){
-            log.info("[wait connect] ip:{}, port:{}", serverSocket.getInetAddress(), serverSocket.getLocalPort());
-            Socket accept = serverSocket.accept();
             log.info("[connect success] wait data. ip:{}, port:{}", accept.getInetAddress(), serverSocket.getLocalPort());
-            accept.getInputStream().read(bs);
+            // read阻塞，等待数据，会影响第二个客户端的连接
+            // 获取的是SocketInputStream
+            InputStream acceptInputStream = accept.getInputStream();
+            acceptInputStream.read(bs);
             log.info("[connect success] context:{}", new String(bs).trim());
         }
     }

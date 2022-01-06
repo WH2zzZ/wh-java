@@ -1,4 +1,4 @@
-package com.oowanghan.io.nio;
+package com.oowanghan.io.nio.nonblocking;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -34,6 +34,10 @@ public class NonBlockingNIOClient {
         //切换成非阻塞模式
         socketChannel.configureBlocking(false);
 
+
+        while (!socketChannel.isConnected()) {
+            System.out.println(" because connect need time, so client can do another things");
+        }
 
         //输入数据
         System.out.println("请输入发送消息：");

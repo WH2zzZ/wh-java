@@ -1,7 +1,6 @@
-package com.oowanghan.thread.thread.problem.safe.synchronizeds;
+package com.oowanghan.thread.problem.safe.synchronizeds;
 
 import lombok.extern.slf4j.Slf4j;
-import org.openjdk.jol.info.ClassLayout;
 
 import java.util.concurrent.locks.Lock;
 
@@ -9,6 +8,6 @@ import java.util.concurrent.locks.Lock;
 public class JolTest {
 
     public static void main(String[] args) {
-        System.out.println(ClassLayout.parseClass(Lock.class).toPrintable());
+//        System.out.println(ClassLayout.parseClass(Lock.class).toPrintable());
     }
 }

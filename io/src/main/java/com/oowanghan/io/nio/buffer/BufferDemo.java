@@ -1,4 +1,4 @@
-package com.oowanghan.io.nio;
+package com.oowanghan.io.nio.buffer;
 
 import org.junit.jupiter.api.Test;
 

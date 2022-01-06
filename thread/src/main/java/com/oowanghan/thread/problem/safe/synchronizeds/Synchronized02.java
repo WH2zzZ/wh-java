@@ -1,4 +1,4 @@
-package com.oowanghan.thread.thread.problem.safe.synchronizeds;
+package com.oowanghan.thread.problem.safe.synchronizeds;
 
 /**
  * synchronized原理
@@ -56,8 +56,6 @@ package com.oowanghan.thread.thread.problem.safe.synchronizeds;
  * Synchronized修饰实例方法
  * @Author WangHan
  * @Create 5:01 下午 2019/12/1
- * @Param
- * @Return
  */
 public class Synchronized02 {
 
@@ -73,7 +71,7 @@ public class Synchronized02 {
      *     原因:
      *          因为两个实例对象锁并不同相同，此时如果两个线程操作数据并非共享的，线程安全是有保障的，
      *          遗憾的是如果两个线程操作的是共享数据，那么线程安全就有可能无法保证了
-     * @return
+     * @return int
      */
     public synchronized int getNext(){
         return value++;

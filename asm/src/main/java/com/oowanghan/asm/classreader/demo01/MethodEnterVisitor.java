@@ -2,9 +2,7 @@ package com.oowanghan.asm.classreader.demo01;
 
 import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.MethodVisitor;
-
-import static jdk.internal.org.objectweb.asm.Opcodes.GETSTATIC;
-import static jdk.internal.org.objectweb.asm.Opcodes.INVOKEVIRTUAL;
+import org.objectweb.asm.Opcodes;
 
 /**
  * @Author WangHan
@@ -35,9 +33,9 @@ public class MethodEnterVisitor extends ClassVisitor {
         @Override
         public void visitCode() {
             // 添加自己的处理逻辑
-            super.visitFieldInsn(GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;");
+            super.visitFieldInsn(Opcodes.GETSTATIC, "java/lang/System", "out", "Ljava/io/PrintStream;");
             super.visitLdcInsn("Method Enter...");
-            super.visitMethodInsn(INVOKEVIRTUAL, "java/io/PrintStream", "println", "(Ljava/lang/String;)V", false);
+            super.visitMethodInsn(Opcodes.INVOKEVIRTUAL, "java/io/PrintStream", "println", "(Ljava/lang/String;)V", false);
         }
     }
 }

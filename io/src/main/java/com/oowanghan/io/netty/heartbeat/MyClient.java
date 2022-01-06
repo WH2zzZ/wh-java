@@ -1,5 +1,6 @@
-package com.oowanghan.io.netty.chat;
+package com.oowanghan.io.netty.heartbeat;
 
+import com.oowanghan.io.netty.chat.GroupChatClientHandler;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -10,13 +11,13 @@ import io.netty.handler.codec.string.StringEncoder;
 
 import java.util.Scanner;
 
-public class GroupChatClient {
-    
+public class MyClient {
+
     //属性
     private final String host;
     private final int port;
 
-    public GroupChatClient(String host, int port) {
+    public MyClient(String host, int port) {
         this.host = host;
         this.port = port;
     }
@@ -40,7 +41,7 @@ public class GroupChatClient {
                             pipeline.addLast("decoder", new StringDecoder());
                             pipeline.addLast("encoder", new StringEncoder());
                             //加入自定义的handler
-                            pipeline.addLast(new GroupChatClientHandler());
+                            pipeline.addLast(new MyClientHandler());
                         }
                     });
 
@@ -61,6 +62,6 @@ public class GroupChatClient {
     }
 
     public static void main(String[] args) throws Exception {
-        new GroupChatClient("127.0.0.1", 8081).run();
+        new MyClient("127.0.0.1", 8081).run();
     }
 }

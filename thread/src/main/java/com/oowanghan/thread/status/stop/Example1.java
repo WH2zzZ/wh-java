@@ -1,4 +1,4 @@
-package com.oowanghan.thread.thread.status.stop;
+package com.oowanghan.thread.status.stop;
 
 
 /**

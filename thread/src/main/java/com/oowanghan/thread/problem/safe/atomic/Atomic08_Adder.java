@@ -1,4 +1,4 @@
-package com.oowanghan.thread.thread.problem.safe.atomic;
+package com.oowanghan.thread.problem.safe.atomic;
 
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicLong;

@@ -1,6 +1,4 @@
-package com.oowanghan.ractor.rxjava.transfer.demo01;
-
-import com.oowanghan.ractor.rxjava.transfer.demo01.Course;
+package reactor.rxjava.transfer.demo01;
 
 import java.util.ArrayList;
 import java.util.List;

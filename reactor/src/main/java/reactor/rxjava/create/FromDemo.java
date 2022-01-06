@@ -1,4 +1,4 @@
-package com.oowanghan.ractor.rxjava.create;
+package reactor.rxjava.create;
 
 import io.reactivex.Observable;
 import io.reactivex.Observer;

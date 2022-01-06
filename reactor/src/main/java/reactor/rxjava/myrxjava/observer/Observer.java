@@ -1,4 +1,4 @@
-package com.oowanghan.ractor.rxjava.myrxjava.observer;
+package reactor.rxjava.myrxjava.observer;
 
 public interface Observer<T> {
 

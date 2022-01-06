@@ -1,6 +1,5 @@
 package com.oowanghan.io.netty.chat;
 
-import com.sun.org.apache.xpath.internal.operations.String;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -13,11 +12,11 @@ import io.netty.handler.codec.string.StringEncoder;
  * @Author WangHan
  * @Create 2021/10/24 5:17 下午
  */
-public class ChatServer {
+public class GroupChatServer {
 
-    int port;
+    private int port;
 
-    public ChatServer(int port) {
+    public GroupChatServer(int port) {
         this.port = port;
     }
 
@@ -47,7 +46,7 @@ public class ChatServer {
         });
     }
 
-    public static void main(String[] args) {
-        
+    public static void main(String[] args) throws InterruptedException {
+        new GroupChatServer(8081).run();
     }
 }

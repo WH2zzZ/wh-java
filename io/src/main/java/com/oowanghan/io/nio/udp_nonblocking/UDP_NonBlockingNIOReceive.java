@@ -1,4 +1,4 @@
-package com.oowanghan.io.nio;
+package com.oowanghan.io.nio.udp_nonblocking;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;

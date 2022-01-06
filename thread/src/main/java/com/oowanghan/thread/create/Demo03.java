@@ -1,4 +1,4 @@
-package com.oowanghan.thread.thread.create;
+package com.oowanghan.thread.create;
 
 /**
  * 线程内部类（无返回值）

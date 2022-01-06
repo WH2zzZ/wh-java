@@ -1,4 +1,4 @@
-package com.oowanghan.thread.thread.problem.safe.synchronizeds;
+package com.oowanghan.thread.problem.safe.synchronizeds;
 
 /**
  * Synchronized的可见性

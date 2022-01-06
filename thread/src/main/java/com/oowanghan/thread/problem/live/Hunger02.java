@@ -1,4 +1,4 @@
-package com.oowanghan.thread.thread.problem.live;
+package com.oowanghan.thread.problem.live;
 
 
 /**

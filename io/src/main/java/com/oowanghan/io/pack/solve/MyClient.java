@@ -1,6 +1,7 @@
-package com.oowanghan.io.pack;
+package com.oowanghan.io.pack.solve;
 
-import com.oowanghan.io.pack.problem.MyClientHandler;
+import com.oowanghan.io.pack.solve.protocl.MyMessageDecoder;
+import com.oowanghan.io.pack.solve.protocl.MyMessageEncoder;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -23,6 +24,8 @@ public class MyClient {
                         @Override
                         protected void initChannel(SocketChannel ch) {
                             ChannelPipeline pipeline = ch.pipeline();
+                            pipeline.addLast(new MyMessageEncoder());
+                            pipeline.addLast(new MyMessageDecoder());
                             pipeline.addLast(new MyClientHandler());
                         }
                     });

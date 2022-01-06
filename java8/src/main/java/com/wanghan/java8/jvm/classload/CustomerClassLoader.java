@@ -1,12 +1,15 @@
 package com.wanghan.java8.jvm.classload;
 
+import java.net.URL;
+import java.net.URLClassLoader;
+import java.net.URLStreamHandlerFactory;
+
 /**
  * 自定义类加载
  * @Author WangHan
  * @Create 2021/4/6 1:52 下午
  */
-public class CustomerClassLoader {
-
+public class CustomerClassLoader extends ClassLoader {
 
     /**
      * 类加载器方法介绍

@@ -1,4 +1,4 @@
-package com.oowanghan.thread.thread.problem.safe.unsafe;
+package com.oowanghan.thread.problem.safe.unsafe;
 
 import sun.misc.Unsafe;
 

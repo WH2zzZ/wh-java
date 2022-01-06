@@ -1,7 +1,6 @@
 package com.oowanghan.asm.classvisitor.classwriter;
 
 import com.oowanghan.asm.utils.FileUtils;
-import com.sun.org.apache.regexp.internal.RE;
 import org.junit.Test;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.Label;

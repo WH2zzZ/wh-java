@@ -10,7 +10,8 @@ package com.oowanghan.asm.classreader.demo01;
  *      System.out.println("Method Exit...");
  */
 public class HelloWorld {
-    public void test() {
+    public void test() throws InterruptedException {
+        Thread.sleep(100);
         System.out.println("this is a test method.");
     }
 }

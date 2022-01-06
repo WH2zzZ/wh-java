@@ -1,4 +1,4 @@
-package com.oowanghan.thread.thread.pool.schedule;
+package com.oowanghan.thread.pool.schedule;
 
 import lombok.extern.slf4j.Slf4j;
 

@@ -1,4 +1,4 @@
-package com.oowanghan.ractor.rxjava.myrxjava.observable.operater.schedule.thread;
+package reactor.rxjava.myrxjava.observable.operater.schedule.thread;
 
 /**
  * @Author WangHan

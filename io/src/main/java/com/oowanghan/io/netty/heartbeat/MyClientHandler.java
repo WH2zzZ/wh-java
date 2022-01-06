@@ -1,9 +1,9 @@
-package com.oowanghan.io.netty.chat;
+package com.oowanghan.io.netty.heartbeat;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 
-public class GroupChatClientHandler extends SimpleChannelInboundHandler<String> {
+public class MyClientHandler extends SimpleChannelInboundHandler<String> {
     
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, String msg) throws Exception {

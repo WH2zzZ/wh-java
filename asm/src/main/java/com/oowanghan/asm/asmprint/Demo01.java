@@ -31,8 +31,7 @@ public class Demo01 {
      */
     public static void main(String[] args) throws IOException {
         // 设置参数
-        String classname = "com.oowanghan.asm.classreader.demo01.HelloWorld";
-        int parsingOptions = ClassReader.SKIP_FRAMES | ClassReader.SKIP_DEBUG;
+        String classname = "com.oowanghan.asm.asmprint.model.HelloWorld";
 //        boolean asmCode = false;
         boolean asmCode = true;
 
@@ -40,6 +39,8 @@ public class Demo01 {
         Printer printer = asmCode ? new ASMifier() : new Textifier();
         PrintWriter printWriter = new PrintWriter(System.out, true);
         TraceClassVisitor traceClassVisitor = new TraceClassVisitor(null, printer, printWriter);
-        new ClassReader(classname).accept(traceClassVisitor, parsingOptions);
+        new ClassReader(classname).accept(
+                traceClassVisitor,
+                ClassReader.SKIP_FRAMES | ClassReader.SKIP_DEBUG);
     }
 }

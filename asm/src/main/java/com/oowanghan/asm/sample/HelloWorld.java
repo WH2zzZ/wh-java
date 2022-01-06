@@ -1,25 +1,24 @@
 package com.oowanghan.asm.sample;
 
-public class HelloWorld implements Cloneable {
-    private static final int intValue = 10;
 
-    public void test() {
-        int a = 1;
-        int b = 2;
-        int c = a + b;
-    }
+@Deprecated
+public class HelloWorld{
 
-    public void test(boolean flag) {
+    private void test(boolean flag) throws InterruptedException {
         if (flag){
-            System.out.println("true");
+            Thread.sleep(1000);
         }else {
             System.out.println("false");
         }
         System.out.println("end");
     }
 
-    public static void main(String[] args) {
-        System.out.println("HelloWorld");
+    public static void main(String[] args) throws InterruptedException {
+        new HelloWorld().test(true);
+        Thread.sleep(1000);
+        long id = Thread.currentThread().getId();
+        System.out.println("thread id : " + id);
+        System.out.println("main running");
     }
 }
 

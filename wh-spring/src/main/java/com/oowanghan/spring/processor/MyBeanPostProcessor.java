@@ -1,9 +1,11 @@
-package com.oowanghan.spring.bean;
+package com.oowanghan.spring.processor;
 
+import com.oowanghan.spring.bean.UserInterface;
 import com.oowanghan.spring.config.MyConfig;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
 
 import java.lang.reflect.InvocationHandler;
@@ -45,6 +47,7 @@ public class MyBeanPostProcessor implements BeanPostProcessor {
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
         if (beanName.equals("user")) {
+            System.out.println();
             return Proxy.newProxyInstance(
                     bean.getClass().getClassLoader(),
                     bean.getClass().getInterfaces(),
@@ -60,7 +63,7 @@ public class MyBeanPostProcessor implements BeanPostProcessor {
     }
 
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(MyConfig.class);
+        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(TestConfig.class);
         UserInterface user = (UserInterface) applicationContext.getBean("user");
         user.test();
     }

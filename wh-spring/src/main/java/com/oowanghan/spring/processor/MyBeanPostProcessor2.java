@@ -1,9 +1,7 @@
-package com.oowanghan.spring.bean;
+package com.oowanghan.spring.processor;
 
-import com.oowanghan.spring.config.MyConfig;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
 
 /**

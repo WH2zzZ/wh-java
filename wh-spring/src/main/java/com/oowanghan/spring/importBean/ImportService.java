@@ -1,4 +1,4 @@
-package com.oowanghan.spring.factorybean;
+package com.oowanghan.spring.importBean;
 
 import com.oowanghan.spring.bean.ObjectInterface;
 import com.oowanghan.spring.bean.UserInterface;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  * @Create 2021/12/14 1:38 上午
  */
 @Component
-public class DefaultService {
+public class ImportService {
 
     @Autowired
     private ObjectInterface objectInterface;

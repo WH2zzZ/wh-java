@@ -1,9 +1,9 @@
-package com.oowanghan.io.pack;
+package com.oowanghan.io.pack.solve;
 
+import com.oowanghan.io.pack.solve.protocl.MessageProtocol;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 
 public class MyClientHandler extends SimpleChannelInboundHandler<MessageProtocol> {

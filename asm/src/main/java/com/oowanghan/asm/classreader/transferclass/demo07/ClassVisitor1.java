@@ -40,4 +40,26 @@ public class ClassVisitor1 extends ClassVisitor {
         System.out.println(no + " visitEnd run");
         super.visitEnd();
     }
+
+    class MethodAdaptor extends MethodVisitor{
+
+        private Integer no;
+
+        public MethodAdaptor(int api, MethodVisitor methodVisitor, Integer no) {
+            super(api, methodVisitor);
+            this.no = no;
+        }
+
+        @Override
+        public void visitCode() {
+            super.visitCode();
+            System.out.println(no + " method visitCode run");
+        }
+
+        @Override
+        public void visitEnd() {
+            super.visitEnd();
+            System.out.println(no + " method visitEnd run");
+        }
+    }
 }

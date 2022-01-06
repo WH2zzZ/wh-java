@@ -1,6 +1,7 @@
-package com.oowanghan.io.pack;
+package com.oowanghan.io.pack.solve;
 
-import com.oowanghan.io.pack.problem.MyServerHandler;
+import com.oowanghan.io.pack.solve.protocl.MyMessageDecoder;
+import com.oowanghan.io.pack.solve.protocl.MyMessageEncoder;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -28,7 +29,9 @@ public class MyServer {
                         @Override
                         protected void initChannel(SocketChannel ch) {
                             ChannelPipeline pipeline = ch.pipeline();
+                            pipeline.addLast(new MyMessageDecoder());
                             pipeline.addLast(new MyServerHandler());
+                            pipeline.addLast(new MyMessageEncoder());
                         }
                     });
 

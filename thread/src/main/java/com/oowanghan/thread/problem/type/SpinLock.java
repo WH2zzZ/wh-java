@@ -1,4 +1,4 @@
-package com.oowanghan.thread.thread.problem.type;
+package com.oowanghan.thread.problem.type;
 
 import java.util.Random;
 

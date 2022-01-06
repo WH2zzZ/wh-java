@@ -1,4 +1,4 @@
-package com.oowanghan.thread.thread.singleton;
+package com.oowanghan.thread.singleton;
 
 /**
  * 静态内部类[推荐用]

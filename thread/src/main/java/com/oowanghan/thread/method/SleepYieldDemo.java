@@ -1,4 +1,4 @@
-package com.oowanghan.thread.thread.method;
+package com.oowanghan.thread.method;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;

@@ -1,4 +1,4 @@
-package com.oowanghan.io.nio.client;
+package com.oowanghan.io.nio.blocking;
 
 
 import org.junit.jupiter.api.Test;

@@ -1,5 +1,6 @@
-package com.oowanghan.asm.classreader.demo01;
+package com.oowanghan.asm.classreader.demo02;
 
+import com.oowanghan.asm.classreader.demo01.MethodAroundVisitor;
 import com.oowanghan.asm.utils.FileUtils;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassWriter;
@@ -18,18 +19,16 @@ import org.objectweb.asm.Opcodes;
 public class HelloWorldTransfer {
 
     public static void main(String[] args) {
-        String relativePath = "com/oowanghan/asm/classreader/demo01/HelloWorld.class";
+        String relativePath = "com/oowanghan/asm/classreader/demo02/HelloWorld.class";
         String filePath = FileUtils.getFilePath(relativePath);
         byte[] bytes = FileUtils.readBytes(filePath);
 
         ClassReader classReader = new ClassReader(bytes);
         ClassWriter classWriter = new ClassWriter(ClassWriter.COMPUTE_FRAMES);
 
-//        MethodEnterVisitor methodEnterVisitor = new MethodEnterVisitor(Opcodes.ASM9, classWriter);
-//        MethodExitVisitor methodExitVisitor = new MethodExitVisitor(Opcodes.ASM9, methodEnterVisitor);
-        MethodAroundVisitor methodAroundVisitor = new MethodAroundVisitor(Opcodes.ASM9, classWriter);
+        MethodParameterVisitor methodParameterVisitor = new MethodParameterVisitor(Opcodes.ASM9, classWriter);
 
-        classReader.accept(methodAroundVisitor, ClassReader.SKIP_DEBUG | ClassReader.SKIP_FRAMES);
+        classReader.accept(methodParameterVisitor, ClassReader.SKIP_DEBUG | ClassReader.SKIP_FRAMES);
         byte[] newBytes = classWriter.toByteArray();
 
         FileUtils.writeBytes(filePath, newBytes);

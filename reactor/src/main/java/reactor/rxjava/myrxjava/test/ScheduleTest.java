@@ -1,10 +1,9 @@
-package com.oowanghan.ractor.rxjava.myrxjava.test;
+package reactor.rxjava.myrxjava.test;
 
-import com.oowanghan.ractor.rxjava.myrxjava.event.Emitter;
-import com.oowanghan.ractor.rxjava.myrxjava.observable.Observable;
-import com.oowanghan.ractor.rxjava.myrxjava.observable.ObservableOnSubscribe;
-import com.oowanghan.ractor.rxjava.myrxjava.observable.operater.schedule.thread.SchedulerFactory;
-import com.oowanghan.ractor.rxjava.myrxjava.observer.Observer;
+import reactor.rxjava.myrxjava.observer.Observer;
+import reactor.rxjava.myrxjava.observable.Observable;
+import reactor.rxjava.myrxjava.observable.ObservableOnSubscribe;
+import reactor.rxjava.myrxjava.observable.operater.schedule.thread.SchedulerFactory;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -20,14 +19,11 @@ public class ScheduleTest {
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(1, 1, 1,
                 TimeUnit.MINUTES, new ArrayBlockingQueue<>(1));
 
-        Observable.create(new ObservableOnSubscribe<String>() {
-            @Override
-            public void subscribe(Emitter<? super String> emitter) {
-                emitter.onNext("1");
-                emitter.onNext("2");
-                emitter.onNext("3");
-                emitter.onComplete();
-            }
+        Observable.create((ObservableOnSubscribe<String>) emitter -> {
+            emitter.onNext("1");
+            emitter.onNext("2");
+            emitter.onNext("3");
+            emitter.onComplete();
         }).subscribeOn(SchedulerFactory.newThread())
                 .subscribe(new Observer<String>() {
                     @Override

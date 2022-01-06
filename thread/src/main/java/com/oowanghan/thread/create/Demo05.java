@@ -1,4 +1,4 @@
-package com.oowanghan.thread.thread.create;
+package com.oowanghan.thread.create;
 
 import java.util.Timer;
 import java.util.TimerTask;

@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Created-By: wanghan
-Agent-Class: com.oowanghan.agent.AgentMain
+Agent-Class: com.oowanghan.agent.AgentStarter
 Can-Redefine-Classes: true
 Can-Retransform-Classes: true
-Premain-Class: com.oowanghan.agent.AgentMain
+Premain-Class: com.oowanghan.agent.AgentStarter

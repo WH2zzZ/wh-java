@@ -1,13 +1,10 @@
-package com.oowanghan.thread.thread.problem.safe.AQS;
+package com.oowanghan.thread.problem.safe.AQS;
 
-import thread.util.QueueObject;
+
+import com.oowanghan.thread.util.QueueObject;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Queue;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.locks.Condition;
-import java.util.concurrent.locks.Lock;
 
 /**
  * 手动实现锁

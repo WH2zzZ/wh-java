@@ -1,4 +1,4 @@
-package com.oowanghan.asm.core;
+package com.oowanghan.asm.classreader.demo01;
 
 import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.MethodVisitor;

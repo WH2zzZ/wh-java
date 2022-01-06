@@ -1,4 +1,4 @@
-package com.oowanghan.thread.thread.problem.safe.AQS;
+package com.oowanghan.thread.problem.safe.AQS;
 
 import lombok.extern.slf4j.Slf4j;
 

@@ -1,4 +1,4 @@
-package com.oowanghan.io.nio;
+package com.oowanghan.io.nio.channel;
 
 import org.junit.jupiter.api.Test;
 

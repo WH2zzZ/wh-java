@@ -1,6 +1,7 @@
-package com.oowanghan.thread.thread.problem.safe.atomic;
+package com.oowanghan.thread.problem.safe.atomic;
 
-import thread.util.User;
+
+import com.oowanghan.thread.util.User;
 
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicIntegerArray;

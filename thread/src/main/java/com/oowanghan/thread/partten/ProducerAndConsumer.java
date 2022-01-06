@@ -1,10 +1,9 @@
-package com.oowanghan.thread.thread.partten;
+package com.oowanghan.thread.partten;
 
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.LinkedList;
-import java.util.UUID;
 
 /**
  * @Author WangHan

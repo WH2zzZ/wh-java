@@ -79,5 +79,12 @@ public class ClassLoaderTest {
         for (String s : extDirs.split(":")) {
             System.out.println(s);
         }
+
+        Parent parent = new Parent();
+        System.out.println(parent.getClass().getClassLoader());
+
+        Thread.currentThread().setContextClassLoader(new CustomerClassLoader());
+        Son son = new Son();
+        System.out.println(son.getClass().getClassLoader());
     }
 }

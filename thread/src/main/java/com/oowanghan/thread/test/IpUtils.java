@@ -1,4 +1,4 @@
-package com.oowanghan.thread.thread.test;
+package com.oowanghan.thread.test;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;

@@ -1,4 +1,4 @@
-package com.oowanghan.thread.thread.problem.change_class;
+package com.oowanghan.thread.problem.change_class;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;

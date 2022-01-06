@@ -1,4 +1,4 @@
-package com.oowanghan.thread.thread.singleton;
+package com.oowanghan.thread.singleton;
 
 /**
  * 懒汉式(线程安全，同步代码块)[不可用]

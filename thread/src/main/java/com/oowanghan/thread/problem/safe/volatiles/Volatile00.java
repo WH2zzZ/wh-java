@@ -1,4 +1,4 @@
-package com.oowanghan.thread.thread.problem.safe.volatiles;
+package com.oowanghan.thread.problem.safe.volatiles;
 
 /**
  * 轻量级锁

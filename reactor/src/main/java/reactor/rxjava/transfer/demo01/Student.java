@@ -1,4 +1,4 @@
-package com.oowanghan.ractor.rxjava.transfer.demo01;
+package reactor.rxjava.transfer.demo01;
 
 import lombok.Data;
 
