@@ -1,6 +1,4 @@
-package com.wanghan.java8.cleancode.sort.bubble;
-
-import com.wanghan.java8.cleancode.util.ArrayUtils;
+package com.wanghan.java8.leetcode.sort.bubble;
 
 import java.util.Arrays;
 

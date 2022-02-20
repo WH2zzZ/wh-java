@@ -1,8 +1,7 @@
-package com.wanghan.java8.cleancode.prefix_method;
+package com.wanghan.java8.leetcode.prefix_method;
 
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.LinkedList;
 
 /**
  * 前缀和

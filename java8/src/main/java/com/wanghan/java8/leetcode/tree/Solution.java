@@ -1,4 +1,4 @@
-package com.wanghan.java8.cleancode.tree;
+package com.wanghan.java8.leetcode.tree;
 
 import javax.swing.tree.TreeNode;
 

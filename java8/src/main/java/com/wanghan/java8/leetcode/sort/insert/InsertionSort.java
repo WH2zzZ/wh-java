@@ -1,6 +1,6 @@
-package com.wanghan.java8.cleancode.sort.insert;
+package com.wanghan.java8.leetcode.sort.insert;
 
-import com.wanghan.java8.cleancode.util.ArrayUtils;
+import com.wanghan.java8.leetcode.util.ArrayUtils;
 
 import java.util.Arrays;
 
@@ -33,7 +33,7 @@ public class InsertionSort {
         int[] arr = new int[]{9, 8, 7, 6, 5, 0, 1, 2, 3, 4, 10, 11, 17, 20};
         long startTime = System.currentTimeMillis();
 
-        //选择排序
+        //插入排序
         insertionSort(arr);
 
         long endTime = System.currentTimeMillis();

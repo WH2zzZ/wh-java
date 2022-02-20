@@ -1,4 +1,4 @@
-package com.wanghan.java8.cleancode.util;
+package com.wanghan.java8.leetcode.util;
 
 import java.util.Arrays;
 

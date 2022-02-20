@@ -1,4 +1,4 @@
-package com.wanghan.java8.cleancode.sort.bubble;
+package com.wanghan.java8.leetcode.sort.bubble;
 
 /**
  * 把数组排成最小的数

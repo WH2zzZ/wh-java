@@ -1,4 +1,4 @@
-package com.wanghan.java8.cleancode.stack;
+package com.wanghan.java8.leetcode.stack;
 
 import java.util.LinkedList;
 

@@ -1,6 +1,6 @@
-package com.wanghan.java8.cleancode.sort.select;
+package com.wanghan.java8.leetcode.sort.select;
 
-import com.wanghan.java8.cleancode.util.ArrayUtils;
+import com.wanghan.java8.leetcode.util.ArrayUtils;
 
 import java.util.Arrays;
 

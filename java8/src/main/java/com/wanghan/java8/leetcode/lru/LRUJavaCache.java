@@ -1,4 +1,4 @@
-package com.wanghan.java8.cleancode.lru;
+package com.wanghan.java8.leetcode.lru;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
