@@ -1,6 +1,6 @@
 package com.oowanghan.spring.importBean;
 
-import com.oowanghan.spring.scanner.MyScanner;
+import com.oowanghan.spring.scanner.EnableScanner;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Import;
@@ -9,9 +9,10 @@ import org.springframework.context.annotation.Import;
  * @Author WangHan
  * @Create 2021/12/14 1:55 上午
  */
-@ComponentScan({"com.oowanghan.spring.bean", "com.oowanghan.spring.importBean"})
-//@Import(MyImportBeanDefinitionRegister.class)
-@MyScanner("com.oowanghan.spring.bean")
+// 这个是用户自己的实现类
+@ComponentScan("com.oowanghan.spring.importBean")
+// 这两个是底层的框架类
+@EnableScanner("com.oowanghan.spring.bean")
 public class ImportBeanApplication {
 
 

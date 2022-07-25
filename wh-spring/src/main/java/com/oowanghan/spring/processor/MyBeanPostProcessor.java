@@ -22,6 +22,8 @@ import java.lang.reflect.Proxy;
 @Component
 public class MyBeanPostProcessor implements BeanPostProcessor {
 
+
+
     /**
      * bean初始化方法调用前被调用
      *

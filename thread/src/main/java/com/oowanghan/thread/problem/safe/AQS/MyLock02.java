@@ -81,7 +81,7 @@ class Test{
  */
 public class MyLock02 implements Lock{
 
-    private Helper helper = new Helper();
+    private final Helper helper = new Helper();
 
 
     /**
@@ -90,6 +90,14 @@ public class MyLock02 implements Lock{
     @Override
     public void lock() {
         helper.acquire(1);
+    }
+
+    /**
+     * 解锁
+     */
+    @Override
+    public void unlock() {
+        helper.release(1);
     }
 
     /**
@@ -113,14 +121,6 @@ public class MyLock02 implements Lock{
     @Override
     public boolean tryLock(long time, TimeUnit unit) throws InterruptedException {
         return helper.tryAcquireNanos(1, unit.toNanos(time));
-    }
-
-    /**
-     * 解锁
-     */
-    @Override
-    public void unlock() {
-        helper.release(1);
     }
 
     /**

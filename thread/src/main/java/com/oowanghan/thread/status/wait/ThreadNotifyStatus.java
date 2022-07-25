@@ -40,8 +40,8 @@ public class ThreadNotifyStatus {
         Thread t3 = new Thread(() -> {
             synchronized (lock) {
                 log.info("{} run .... wait", Thread.currentThread().getName());
-//                lock.notify();
-                lock.notifyAll();
+                lock.notify();
+//                lock.notifyAll();
                 log.info("{} 继续执行", Thread.currentThread().getName());
             }
         });

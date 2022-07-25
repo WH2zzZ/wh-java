@@ -1,16 +1,12 @@
 package com.oowanghan.spring.importBean;
 
 import com.oowanghan.spring.scanner.MyClassPathScanner;
-import com.oowanghan.spring.scanner.MyScanner;
+import com.oowanghan.spring.scanner.EnableScanner;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.BeanNameGenerator;
 import org.springframework.context.annotation.ImportBeanDefinitionRegistrar;
 import org.springframework.core.type.AnnotationMetadata;
-import org.springframework.core.type.classreading.MetadataReader;
-import org.springframework.core.type.classreading.MetadataReaderFactory;
-import org.springframework.core.type.filter.TypeFilter;
 
-import java.io.IOException;
 import java.util.Map;
 
 /**
@@ -28,7 +24,7 @@ public class MyImportBeanDefinitionRegister implements ImportBeanDefinitionRegis
         // 扫描 -> 扫描路径， 如何扫描
 //        String path = "com.oowanghan.spring.bean";
         // 通过对自定义注解上增加import注解导入当前这个类，就可以在这里获取到注解信息
-        Map<String, Object> annotationAttributes = importingClassMetadata.getAnnotationAttributes(MyScanner.class.getName());
+        Map<String, Object> annotationAttributes = importingClassMetadata.getAnnotationAttributes(EnableScanner.class.getName());
         String path = (String) annotationAttributes.get("value");
 
         MyClassPathScanner myClassPathScanner = new MyClassPathScanner(registry);

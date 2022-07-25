@@ -80,8 +80,10 @@ public class BufferDemo {
 
         String data = "12345";
         byteBuffer.put(data.getBytes());
+        printBufferInfo(byteBuffer);
 
         byteBuffer.flip();
+        printBufferInfo(byteBuffer);
         byte[] content = new byte[byteBuffer.limit()];
         byteBuffer.get(content,0,2);
 

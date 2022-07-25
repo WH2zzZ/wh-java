@@ -30,12 +30,12 @@ class Example3 extends Thread {
     @Override
     public void run() {
         while (!isInterrupted()) {
-//        while (!stop) {
             System.out.println("Thread running...");
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
                 System.out.println("线程已被中断");
+                Thread.currentThread().interrupt();
             }
         }
         System.out.println("线程退出");

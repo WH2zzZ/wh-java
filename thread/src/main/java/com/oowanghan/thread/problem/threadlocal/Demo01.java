@@ -30,9 +30,9 @@ public class Demo01 {
 
 class Content{
 
-    private ThreadLocal<String> stringThreadLocal = new ThreadLocal<>();
+    private static ThreadLocal<String> stringThreadLocal = new ThreadLocal<>();
 
-    public String getData() {
+    public static String getData() {
         return stringThreadLocal.get();
     }
 

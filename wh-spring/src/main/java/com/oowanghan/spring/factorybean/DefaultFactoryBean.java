@@ -26,7 +26,7 @@ public class DefaultFactoryBean implements FactoryBean {
                 DefaultFactoryBean.class.getClassLoader(),
                 new Class[]{mapperClass},
                 (proxy, method, args) -> {
-                    System.out.println(mapperClass.getName() + "run");
+                    System.out.println(mapperClass.getName() + " ： run");
                     return null;
                 });
     }

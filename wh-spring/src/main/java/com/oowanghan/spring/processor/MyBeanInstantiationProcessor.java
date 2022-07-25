@@ -2,6 +2,7 @@ package com.oowanghan.spring.processor;
 
 import com.oowanghan.spring.bean.User;
 import org.springframework.beans.BeansException;
+import org.springframework.beans.PropertyValues;
 import org.springframework.beans.factory.config.InstantiationAwareBeanPostProcessor;
 import org.springframework.stereotype.Component;
 
@@ -63,5 +64,10 @@ public class MyBeanInstantiationProcessor implements InstantiationAwareBeanPostP
     public boolean postProcessAfterInstantiation(Object bean, String beanName) throws BeansException {
 //        return InstantiationAwareBeanPostProcessor.super.postProcessAfterInstantiation(bean, beanName);
         return false;
+    }
+
+    @Override
+    public PropertyValues postProcessProperties(PropertyValues pvs, Object bean, String beanName) throws BeansException {
+        return InstantiationAwareBeanPostProcessor.super.postProcessProperties(pvs, bean, beanName);
     }
 }

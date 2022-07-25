@@ -16,7 +16,7 @@ public class ParkDemo {
             while (true) {
                 log.info("执行:{}", Thread.currentThread().getName());
                 try {
-                    Thread.sleep(3000);
+                    Thread.sleep(500);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -29,8 +29,10 @@ public class ParkDemo {
         Thread.sleep(1000);
         log.info("唤醒");
         LockSupport.unpark(thread);
+        Thread.sleep(1000);
         log.info("唤醒");
         LockSupport.unpark(thread);
+        Thread.sleep(1000);
         log.info("唤醒");
         LockSupport.unpark(thread);
 
