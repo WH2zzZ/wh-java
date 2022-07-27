@@ -1,4 +1,4 @@
-package leetcode.list;
+package leetcode.list.sort;
 
 public class ListNode {
     int val;
