@@ -1,7 +1,5 @@
 package com.wanghan.java8.jvm.direct_memory;
 
-import javafx.beans.binding.When;
-
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;

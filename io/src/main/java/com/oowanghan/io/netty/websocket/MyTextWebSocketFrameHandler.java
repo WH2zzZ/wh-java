@@ -3,11 +3,14 @@ package com.oowanghan.io.netty.websocket;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
+import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
 
 import java.time.LocalDateTime;
 
 //这里 TextWebSocketFrame 类型，表示一个文本帧(frame)
 public class MyTextWebSocketFrameHandler extends SimpleChannelInboundHandler<TextWebSocketFrame> {
+
+    private int count = 0;
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, TextWebSocketFrame msg) throws Exception {
@@ -15,7 +18,27 @@ public class MyTextWebSocketFrameHandler extends SimpleChannelInboundHandler<Tex
         System.out.println("服务器收到消息 " + msg.text());
 
         //回复消息
-        ctx.channel().writeAndFlush(new TextWebSocketFrame("服务器时间" + LocalDateTime.now() + " " + msg.text()));
+        if (count == 0) {
+            count++;
+            ctx.channel().writeAndFlush(new TextWebSocketFrame("服务器时间" + LocalDateTime.now() + " " + msg.text()));
+        }
+    }
+
+    /**
+     * 在使用Netty开发Websocket服务时，通常需要解析来自客户端请求的URL、Headers等等相关内容，并做相关检查或处理。
+     *
+     * @param ctx
+     * @param evt
+     * @throws Exception
+     */
+    @Override
+    public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
+        if (evt instanceof WebSocketServerProtocolHandler.HandshakeComplete) {
+            WebSocketServerProtocolHandler.HandshakeComplete handshake = (WebSocketServerProtocolHandler.HandshakeComplete) evt;
+            System.out.println("connect client uri: " + handshake.requestUri());
+            System.out.println("connect client header: " + handshake.requestHeaders());
+        }
+        super.userEventTriggered(ctx, evt);
     }
 
     //当web客户端连接后， 触发方法

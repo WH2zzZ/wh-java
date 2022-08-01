@@ -1,6 +1,6 @@
 package com.oowanghan.asm.sample.create_class;
 
-public class MyClassLoader extends ClassLoader {
+public class MyClassLoaderDemo extends ClassLoader {
     @Override
     protected Class<?> findClass(String name) throws ClassNotFoundException {
         if ("sample.HelloWorld".equals(name)) {

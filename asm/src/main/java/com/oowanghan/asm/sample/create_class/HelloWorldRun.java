@@ -3,7 +3,7 @@ package com.oowanghan.asm.sample.create_class;
 
 public class HelloWorldRun {
     public static void main(String[] args) throws Exception {
-        MyClassLoader classLoader = new MyClassLoader();
+        MyClassLoaderDemo classLoader = new MyClassLoaderDemo();
         Class<?> clazz = classLoader.loadClass("com.oowanghan.asm.classreader.demo06.HelloWorld");
         Object instance = clazz.newInstance();
         System.out.println(instance);

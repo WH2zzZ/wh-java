@@ -137,7 +137,7 @@ public class MyLock02 implements Lock{
      * @Author WangHan
      * @Create 11:14 下午 2019/12/9
      */
-    private class Helper extends AbstractQueuedSynchronizer{
+    private static class Helper extends AbstractQueuedSynchronizer{
 
         /**
          * 尝试获取锁
