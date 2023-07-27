@@ -1,6 +1,7 @@
 package com.oowanghan.spring.factory;
 
 import com.oowanghan.spring.bean.User;
+import com.oowanghan.spring.scop.MobileRequestScopeFactory;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 
 /**

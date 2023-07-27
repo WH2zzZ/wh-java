@@ -1,5 +1,6 @@
 package com.oowanghan.spring.factorybean;
 
+import com.oowanghan.spring.bean.User;
 import com.oowanghan.spring.bean.UserInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -12,7 +13,7 @@ import org.springframework.stereotype.Component;
 public class UserService {
 
     @Autowired
-    private UserInterface userInterface;
+    private User userInterface;
 
     public void test() {
         userInterface.test();

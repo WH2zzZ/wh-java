@@ -1,5 +1,6 @@
 package com.oowanghan.spring.bean;
 
+import com.oowanghan.spring.scop.MobileRequestScope;
 import org.springframework.stereotype.Component;
 
 /**
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Component;
  * @Create 2021/12/7 12:47 上午
  */
 @Component
+@MobileRequestScope
 public class User implements UserInterface{
 
     @Override

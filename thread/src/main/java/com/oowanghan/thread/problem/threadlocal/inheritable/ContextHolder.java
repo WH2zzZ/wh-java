@@ -2,6 +2,7 @@ package com.oowanghan.thread.problem.threadlocal.inheritable;
 
 public class ContextHolder {
     private static final InheritableThreadLocal<Context> holder = new InheritableThreadLocal();
+    private static final InheritableThreadLocal<String> holderStr = new InheritableThreadLocal();
 
     public ContextHolder() {
     }

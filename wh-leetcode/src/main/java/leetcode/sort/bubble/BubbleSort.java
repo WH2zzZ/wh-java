@@ -28,7 +28,7 @@ import java.util.Arrays;
 public class BubbleSort {
 
     public static void main(String[] args) {
-        int[] arr = new int[]{9, 8, 7, 6, 5, 0, 1, 2, 3, 4, 10, 11, 17, 20};
+        int[] arr = new int[]{9, 8, 7, 6, 5, 0, 1, 2, 3, 4, 10, 11, 17, 4};
         long startTime = System.currentTimeMillis();
 
         //冒泡排序
